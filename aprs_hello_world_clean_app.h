@@ -1,6 +1,5 @@
 #pragma once
 
-#include <FreeRTOS.h>
 #include <furi.h>
 #include <gui/gui.h>
 
