@@ -8,6 +8,30 @@
 
 #include <notification/notification_messages.h>
 
+#ifndef FURI_CRITICAL_ENTER
+#define FURI_CRITICAL_ENTER()               \
+    uint32_t primask_bit = __get_PRIMASK(); \
+    __disable_irq()
+#define FURI_CRITICAL_ENTER()                   \
+    uint32_t __isrm = 0;                        \
+    bool __from_isr = FURI_IS_ISR();            \
+    if(__from_isr) {                            \
+        __isrm = taskENTER_CRITICAL_FROM_ISR(); \
+    } else {                                    \
+        taskENTER_CRITICAL();                   \
+    }
+#endif
+
+#ifndef FURI_CRITICAL_EXIT
+#define FURI_CRITICAL_EXIT() __set_PRIMASK(primask_bit)
+#define FURI_CRITICAL_EXIT()                \
+    if(__from_isr) {                        \
+        taskEXIT_CRITICAL_FROM_ISR(__isrm); \
+    } else {                                \
+        taskEXIT_CRITICAL();                \
+    }
+#endif
+
 typedef enum {
     EventTypeTick,
     EventTypeInput,
