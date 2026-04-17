@@ -9,7 +9,7 @@
 
 #include <furi_hal_random.h>
 
-#include "task.h"
+#include <task.h>
 
 #define _1200   1
 #define _2400   0
