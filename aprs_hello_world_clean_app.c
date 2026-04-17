@@ -468,7 +468,7 @@ static void aprs_hello_world_clean_app_draw_callback(Canvas* canvas, void* ctx){
 
 //---------------------------------------------------------------------------
 
-static void timer_callback(FuriMessageQueue* event_queue) {
+static void timer_callback(void* event_queue) {
     // Проверяем, что контекст не нулевой
     furi_assert(event_queue);
 
