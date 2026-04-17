@@ -6,6 +6,8 @@ App(
     cdefines=["APP_aprs_hello_world_clean"],
     requires=[
         "gui",
+        "furi",
+        "FreeRTOS"
     ],
     stack_size=1 * 1024,
     order=90,
