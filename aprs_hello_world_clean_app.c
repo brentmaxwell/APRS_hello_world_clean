@@ -9,7 +9,6 @@
 
 #include <furi_hal_random.h>
 
-#include "FreeRTOS.h" 
 #include "task.h"
 
 #define _1200   1
