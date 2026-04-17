@@ -1,10 +1,12 @@
 #pragma once
 
+#include <FreeRTOS.h>
 #include <furi.h>
 #include <gui/gui.h>
 
 #include <furi_hal.h>
 #include <furi_hal_pwm.h>
+#include <task.h>
 
 #include <notification/notification_messages.h>
 
