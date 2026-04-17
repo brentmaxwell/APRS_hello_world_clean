@@ -1,5 +1,5 @@
 name: "FAP: Build and lint"
-on: [push, pull_request]
+on: workflow_dispatch
 jobs:
   ufbt-build-action:
     runs-on: ubuntu-latest
@@ -12,7 +12,7 @@ jobs:
         id: build-app
         with:
           # Set to 'release' to build for latest published release version
-          sdk-channel: dev
+          sdk-channel: release
       - name: Upload app artifacts
         uses: actions/upload-artifact@v3
         with:
